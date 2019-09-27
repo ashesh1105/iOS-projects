@@ -3,7 +3,7 @@
 //  SegueApp: Segue meaning connection between first view controller to second one.
 //  This app demostrates segue using Main.storyboard (done visually) as well as via code. It also
 //  demostrates passing data between segue, meaning one screen input to be passed to another.
-//
+//  This project also demonstrates View Controller Lifecycle Methods as can be seen on this View Controller class itself.
 //  Created by Ashesh Singh on 9/24/19.
 //  Copyright © 2019 Ashesh Singh. All rights reserved.
 //
