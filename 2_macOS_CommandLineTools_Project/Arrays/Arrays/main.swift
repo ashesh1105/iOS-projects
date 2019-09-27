@@ -1,6 +1,7 @@
 //  Created by Ashesh Singh on 9/15/19.
 //  Copyright © 2019 Ashesh Singh. All rights reserved.
 // Swift Fundamentals: Arrays
+// Note, THese projects will run like stand alone code file.
 
 import Foundation
 
