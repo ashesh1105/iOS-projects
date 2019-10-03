@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14865.1" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14819.2"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="__GesterRecognizerApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Rani Mukherjee Image #1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cbg-bE-ckS">
+                                <rect key="frame" x="105" y="500" width="205" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="hFp-1H-e8v"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" systemColor="linkColor" red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="rani_mukherjee1" translatesAutoresizingMaskIntoConstraints="NO" id="eKn-7B-ITp">
+                                <rect key="frame" x="105" y="231" width="203" height="248"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="cbg-bE-ckS" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="6d7-cY-gLd"/>
+                            <constraint firstItem="cbg-bE-ckS" firstAttribute="top" secondItem="eKn-7B-ITp" secondAttribute="bottom" constant="21" id="CcV-2a-8Oy"/>
+                            <constraint firstItem="eKn-7B-ITp" firstAttribute="leading" secondItem="cbg-bE-ckS" secondAttribute="leading" id="D7t-Ed-pgd"/>
+                            <constraint firstItem="eKn-7B-ITp" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="OEd-Tb-dZp"/>
+                            <constraint firstItem="eKn-7B-ITp" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="105" id="h8B-ZG-SJc"/>
+                            <constraint firstItem="eKn-7B-ITp" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="187" id="lXS-Xg-iyL"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="myImageView" destination="eKn-7B-ITp" id="qab-tP-0eV"/>
+                        <outlet property="myLabel" destination="cbg-bE-ckS" id="1g1-gy-pcs"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="138.61607142857142"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="rani_mukherjee1" width="203" height="248"/>
+    </resources>
+</document>
