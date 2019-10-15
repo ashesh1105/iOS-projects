@@ -1,7 +1,5 @@
-//  Created by Ashesh Singh on 9/15/19.
-//  Copyright © 2019 Ashesh Singh. All rights reserved.
-// Swift Fundamentals: Arrays
-// Note, THese projects will run like stand alone code file.
+// Swift Fundamentals: Functions, Arrays, Set and Dictionary
+// Note, This is MacOS Project so this file can be run as standalone program from XCode
 
 import Foundation
 
@@ -20,21 +18,23 @@ print(myArrAnyType[3])  // prints true
 print("Some Array methods demo:")
 myStrArr.append("str5") // appends "str5" to end of array
 print(myStrArr) // prints ["str1", "str2", "str3", "str4", "str5"]
-print(myStrArr.capacity)    // prints 4
-print(myStrArr.count)   // prints 4
-print(myStrArr.endIndex)    // prints 4. This is confusing, last index will be 1 less than this. TODO: Find more details!
-print(myStrArr.sort())  // prints sorted array: ["str2", "str3", "str1", "str4"]
+print(myStrArr.capacity)    // prints 8
+print(myStrArr.count)   // prints 5
+print(myStrArr.endIndex)    // prints 5. This is confusing, last index should be 1 less than count of elements. TODO: Find more details!
+// print(myStrArr[myStrArr.endIndex])   => This will be an error since myStrArr[5] will mean array has to has at least 6 elements, it only has 5!
+myStrArr.sort()     // sorts the array
+print(myStrArr)     // prints: ["str1", "str2", "str3", "str4", "str5"]
 myStrArr.reverse()  // Array gets reversed, original array changed.
-print(myStrArr) // prints array in reverse order: ["str4", "str3", "str2", "str1"]
-print(myStrArr.contains("str2"))    // prints true
-print(myStrArr.first)   // prints Optional("str4") with a warning: "Expression implicitly coerced from 'String?' to 'Any'"
-print(myStrArr.last)    // prints Optional("str1") with a warning: "Expression implicitly coerced from 'String?' to 'Any'"
+print(myStrArr) // prints array in reverse order: ["str5", "str4", "str3", "str2", "str1"]
+print("myStrArr.contains('str2'): \(myStrArr.contains("str2"))")    // prints true
+print(myStrArr.first)   // prints Optional("str5") with a warning: "Expression implicitly coerced from 'String?' to 'Any'"
+print(myStrArr.last!)    // prints str1 with no warning since we are force unwrapping in this case
 
 
 // Sets are unordered collections which do not allow duplicates
 var mySet : Set = [1, 2, 3, 4, 5]
-mySet.insert(5) // Swift ignores this command since 5 is already present in t
-print(mySet)    // prints same set in random way: [4, 5, 3, 2, 1]
+mySet.insert(5) // Swift ignores this command since 5 is already present in the set
+print(mySet)    // prints same set in random order: [4, 5, 3, 2, 1]
 mySet.insert(7) // inserts 7 to set
 print(mySet)    // prints set with 7 added in it: [4, 1, 7, 3, 5, 2]
 // Sets don't have the notion of "Index" since they are unordered collection!!
@@ -68,7 +68,7 @@ var myCaloriesBurnt = [
     "Swim": 200,
     "Basketball": 300
 ]
-print(myCaloriesBurnt["Swim"])  // prints Optional(200)
+print(myCaloriesBurnt["Swim"]!)  // prints 200, the value of key "swim". Does not say Optional since we're force unwrapping it
 
 
 
