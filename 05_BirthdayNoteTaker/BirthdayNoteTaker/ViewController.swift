@@ -1,7 +1,10 @@
 //  BirthdayNoteTaker
 //
 //  This project will demonstrate the use of small key-value store called UserDefaults to persist the user data
-//  between app runs (view load)
+//  between app runs (view load). Following methods on UserDefaults is used in this project:
+//  UserDefaults.standard.object(forKey: "name") => to retrieve data from key-value store
+//  UserDefaults.standard.set("data", forKey: "name")   => to set data
+//  UserDefaults.standard.removeObject(forKey: "name")  => to remove data
 
 import UIKit
 

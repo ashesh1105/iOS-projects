@@ -1,9 +1,6 @@
 //
-//  ViewController.swift
-//  ProjectLayout
-//
-//  Created by Ashesh Singh on 9/17/19.
-//  Copyright © 2019 Ashesh Singh. All rights reserved.
+//  This project us to demo adding right contraints in Main.storyboard so your app displays correctly
+//  on all iOS devices. Check Main.storyboard and contraints on there to know more
 //
 
 import UIKit
