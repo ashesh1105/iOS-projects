@@ -36,7 +36,7 @@ let pi = 3.14
 
 // intger, double and float
 let numConst = 4
-print(userAge / numConst)   // prints 4, why? since userAge is 25 and numConstant1 is 4, both are integers so result is integer too
+print(userAge / numConst)   // prints 6, why? since userAge is 25 and numConstant1 is 4, both are integers so result is integer too
 
 let myNumberD = 50.0
 let numConstD = 4.0
