@@ -1,11 +1,12 @@
 //
 //  ViewController.swift
 //  SegueApp: Segue meaning connection between first view controller to second one.
-//  This app demostrates segue using Main.storyboard (done visually) as well as via code. It also
-//  demostrates passing data between segue, meaning one screen input to be passed to another.
+//  This app demostrates segue using Main.storyboard (done visually) as well as via code.
+//  When you ctrl + drag from one view controller to another in Main.storyboard, you create a link between them.
+//  That link is the identifier (you can give it a name there) that is used in performSegue and prepare methods
+//  to make connection between view controller in the code and exchange data between them.
+
 //  This project also demonstrates View Controller Lifecycle Methods as can be seen on this View Controller class itself.
-//  Created by Ashesh Singh on 9/24/19.
-//  Copyright © 2019 Ashesh Singh. All rights reserved.
 //
 
 import UIKit
@@ -36,7 +37,8 @@ class ViewController: UIViewController {
         userName = nameLabel.text!
         
         // Below does segue from code, similar to how we do visually from Main.storyboard between two view controllers
-        // sequeFirstVCToSecond is unique id for seque we created in Main.storyboard
+        // sequeFirstVCToSecond is unique id for segue we created in Main.storyboard by ctrl + dragging from one
+        // View Controller to another.
         performSegue(withIdentifier: "sequeFirstVCToSecond", sender: nil)
     }
     
