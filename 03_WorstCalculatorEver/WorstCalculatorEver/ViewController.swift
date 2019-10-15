@@ -31,6 +31,9 @@ class ViewController: UIViewController {
 //        resultLabel.text = String(result)
         
         // Best way is to use if let statement in this case, where you can do error handling too
+        // It is important to force unwrap firstText.text by ! , else you will get error
+        // firstText.text will always be an empty string (at the least) but another way to avoid errors or app crash would be to do below:
+        // if let firstNumber = Int(firstText.text ?? "") {  => so you provide a default in case firstText.text comes as nil by any chance
         if let firstNumber = Int(firstText.text!) {
             if let secondNumber = Int(secondText.text!) {
                 result = firstNumber + secondNumber
