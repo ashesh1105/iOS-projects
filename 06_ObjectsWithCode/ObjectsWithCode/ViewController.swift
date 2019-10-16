@@ -1,10 +1,5 @@
-//
-//  ViewController.swift
-//  ObjectsWithCode
-//
-//  Created by Ashesh Singh on 9/17/19.
-//  Copyright © 2019 Ashesh Singh. All rights reserved.
-//
+// Code your objects like buttons, label, etc., instead of leveraging Main.storyboard all the time
+// It allows you more precise control over objects you need and where you want to display them
 
 import UIKit
 
@@ -59,8 +54,8 @@ class ViewController: UIViewController {
     
     // myButton action calls this. Note this must be objectiveC function so annotated with @objc
     @objc func myAction() {
-//        print("tapped!")
-        // Change the text my myLabel when myButton is clicked
+    //  print("tapped!")
+    //  Change the text my myLabel when myButton is clicked
         myLabel.text = "Tapped!"
     }
 

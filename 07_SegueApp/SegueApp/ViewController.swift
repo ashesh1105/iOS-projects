@@ -6,6 +6,10 @@
 //  That link is the identifier (you can give it a name there) that is used in performSegue and prepare methods
 //  to make connection between view controller in the code and exchange data between them.
 
+//  When you create link between View Controlers in Main.storyboard, you should go to Editor -> Embed in -> Navigation Controller
+//  Above step creates a Navigation controller which serves as backbutton added automatically (in this project) to get to previous
+//  View Controller from the navigated one
+
 //  This project also demonstrates View Controller Lifecycle Methods as can be seen on this View Controller class itself.
 //
 
@@ -16,7 +20,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var titleLabelFirstViewController: UILabel!
     @IBOutlet weak var nameLabel: UITextField!
     
-    // Define a global variable to handle user input added in first View Controller
+    // Define a global variable (in this view controller) to handle user input added in first View Controller
     var userName = ""
     
     // Called only once when app gets loaded

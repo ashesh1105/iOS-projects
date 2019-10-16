@@ -19,7 +19,7 @@ class SecondViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        nameLabelSecondVC.text = myName
+        nameLabelSecondVC.text = "Welcome \(myName)!"
     }
     
 }
