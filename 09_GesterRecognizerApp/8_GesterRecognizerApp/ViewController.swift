@@ -2,12 +2,10 @@
 //  ViewController.swift
 //  8_GesterRecognizerApp
 //
-//  This project demos adding gesture recognizers to UI controlls like Image View
-//  and implement some actions based on them. That way any control can be added a
+//  This project demos adding gesture recognizers to UI elements like Image View
+//  and implement some actions based on them. That way any UI element can be added a
 //  gester recognizer and you aren't dependent on a button alone for action based events
 //
-//  Created by Ashesh Singh on 9/27/19.
-//  Copyright © 2019 Ashesh Singh. All rights reserved.
 //
 
 import UIKit
@@ -21,12 +19,19 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // An important step to enable interaction for a UI Element
         myImageView.isUserInteractionEnabled = true
+        
+        // Create a gester recognizer which takes a objective c method to run
         let gesterRecognizer = UITapGestureRecognizer(target: self, action: #selector(changePic))
+        
+        // Add the gester recognizer to your UI element
         myImageView.addGestureRecognizer(gesterRecognizer)
     }
     
     @objc func changePic() {
+        
+        // Alternate the pic that displays on Image View
         if raniPic1 {
             myImageView.image = UIImage(named: "rani_mukherjee2")
             myLabel.text = "Rani Mukherjee Image #2"
