@@ -1,9 +1,5 @@
 //
-//  ViewController.swift
-//  AlertMessages
-//
-//  Created by Ashesh Singh on 9/26/19.
-//  Copyright © 2019 Ashesh Singh. All rights reserved.
+// This project demos creating and adding an alert to a view controller, in this case represented by "self" keyword
 //
 
 import UIKit
@@ -21,22 +17,34 @@ class ViewController: UIViewController {
 
     @IBAction func signUpClicked(_ sender: Any) {
         
+        var alertTitle = ""
+        var alertErrorMsg = ""
+        
+        // Populate alert title and appropriate error message for alert in case an issue in user input
         if userNameText.text == "" {
-            generateAlert(myTitle: "Username Error!", errorMsg: "User name can not be empty!")
+            alertTitle = "Username Error!"
+            alertErrorMsg = "User name can not be empty!"
         } else if passwordText.text == "" {
-            generateAlert(myTitle: "Password Error!", errorMsg: "Password can not be empty!")
+            alertTitle = "Password Error!"
+            alertErrorMsg = "Password can not be empty!"
         } else if passwordAgainText.text == "" {
-            generateAlert(myTitle: "Password Error!", errorMsg: "Second time password can not be empty!")
+            alertTitle = "Password Error!"
+            alertErrorMsg = "Second time password can not be empty!"
         } else if passwordText.text != passwordAgainText.text {
-            generateAlert(myTitle: "Password Mismatch Error!", errorMsg: "Given passwords do not match!")
+            alertTitle = "Password Mismatch Error!"
+            alertErrorMsg = "Given passwords do not match!"
         }
+        
+        // Custom function to generate alert
+        generateAlert(myTitle: alertTitle, errorMsg: alertErrorMsg)
     }
     
     // Our generic function to generate an alert based on parameters we provide it
     func generateAlert(myTitle: String, errorMsg: String) {
         
         // Create an alert this way. You have other options as well to chose from on UIAlertController.Style.Style
-        let alert = UIAlertController(title: myTitle, message: errorMsg, preferredStyle: UIAlertController.Style.alert)
+        // Style.alert show a regular alert. Style.actionSheet show the popup at the bottom of the app, different look and feel
+        let alert = UIAlertController(title: myTitle, message: errorMsg, preferredStyle: UIAlertController.Style.actionSheet)
         
         // You must create an action and associate that with your alert, else alert will just sit there and you can't even dismiss that!
         // Note, with your action, you get a handler, which is a function that is called when this action happens, we are printing into log here
