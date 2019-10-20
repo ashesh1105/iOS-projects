@@ -8,7 +8,7 @@
  If you do same code in viewDidAppear, that will be better but there also since you do this in main thread,
  label won't get updated till for loop is all done and then you'll see Time: 0 on the label.
  
- Hence we need Timer object here instanciated via a method that allows us to say how many times timer runs, on which object, which objectivbe c function to execute and all of that done as another thred, not the main one.
+ Hence we need Timer object here instanciated via a method that allows us to say how many times timer runs, on which object, which objectivbe c function to execute and all of that done as another thread, not the main one.
  You do this in viewDidLoad, so before view gets loaded, it displays what you put to label, i.e., Time: 10,
  then it instantiates a new Timer thread which runs in parallel to continue updating the label. When counter
  reaches 0, you invalidate the Timer and the loop finishes.

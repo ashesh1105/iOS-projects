@@ -54,7 +54,7 @@ class ViewController: UIViewController {
             highScoreLabel.text = "High Score: \(highScore)"
         }
         
-        // User if-let to ensure persisted highScore was not nil and an Int
+        // Use if-let to ensure persisted highScore was not nil and an Int
         if let newHighScore = scoredHighScore as? Int {
             highScore = newHighScore
             highScoreLabel.text = "High Score: \(highScore)"
@@ -162,15 +162,16 @@ class ViewController: UIViewController {
                 UserDefaults.standard.set(self.highScore, forKey: "high_score")
             }
             
-            //Alert
+            // Set alerts
             let alert = UIAlertController(title: "Time's up!", message: "Do you want to play again?", preferredStyle: UIAlertController.Style.alert)
             let okButton = UIAlertAction(title: "OK", style: UIAlertAction.Style.cancel, handler: nil)
             let replayButton = UIAlertAction(title: "Replay", style: UIAlertAction.Style.default) { (UIAlertAction) in
                 // Code here
                 self.score = 0
-                self.initiateTimers()
+                self.scoreLabel.text = "Score: \(self.score)"
                 self.counter = self.MAX_COUNTER
                 self.timeLabel.text = String(self.counter)
+                self.initiateTimers()
             }
             
             alert.addAction(okButton)
