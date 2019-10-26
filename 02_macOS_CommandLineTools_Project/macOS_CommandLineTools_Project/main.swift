@@ -53,6 +53,18 @@ print(userName) // prints "david"
 let num1 : Int = 5  // define and initialize a constant of Int type in same step
 print(num1) // prints 5
 
+// A function can be called without naming arguments
+func aFunc(_ name: String) {
+    print("Hello \(name)")
+}
+aFunc("Ashesh") // prints "Hello Ashesh"
+
+// A function can also be defined this way. In this example, from (or to) is parameter name(s) and val1 (or val2) are values
+func anotherFunc(from val1: Int, to val2: Int) {
+    print("From \(val1) to \(val2)")
+}
+anotherFunc(from: 1, to: 10)    // prints "From 1 to 10"
+
 
 
 

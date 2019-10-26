@@ -2,11 +2,14 @@
 // This project demostrates use of UITableView.
 // Whenever you work with UITableView, some steps are necessary:
 // 1) Make ViewController class use methods of UITableViewDelegate and UITableViewDataSource class
-// 2) Above will make you override 2 tableView overloaded functions:
+// 2) Add these lines in viewDidLoad method so this view controller can use the defined tableView:
+//    myTableView.delegate = self
+//    myTableView.dataSource = self
+// 3) Above will make you override 2 tableView overloaded functions:
 //   A) One where you return row count so that many rows get displayed on the view,
 //   B) Other one where you return the contents for rows. Here, an argument indexPath.row can be used
 //      as index if you have the contents coming via custom arrays like landmarkNames.
-// 3) You can leverage more overloaded functions coming out of UITableView classes like the one
+// 4) You can leverage more overloaded functions coming out of UITableView classes like the one
 //    with argument UITableViewCell.EditingStyle which you can use to allow deletes by swapping
 //    rows. Another one with argument didSelectRowAt indexPath: IndexPath can be used to perform
 //    an action (like do segue to another view controller when user taps on a row.
