@@ -5,18 +5,56 @@
  * used to a) get user inputs (image & meta data), b) display a record when user clicks on a row in first view
  *
  * Details:
- * 1) Create storyboard layout with 2 views, connecting segue between them and getting Navigation Controller by using menu: Editor -> Embed in -> Navigation Controller. On First view (ViewController), we get a TableView and second one (DetailedVC) an ImageView, TextFields for name, artist and year.
- * 2) We go to .xcdatamodeld file and create a new Entity in CoreData: "Paintings" and define its attributes as name (String), artist (String), year (Integer 32), image (BinaryData) and id (UUID).
- * 3) We link all the controls to respective view controller. Save Button on DetailedVC needs to be connected twice, once as Action, next time as Outlet. Action one is a function where we code on what happens when user saves an image, Outlet one is used to show / hide / make button clickable, etc., based on whether we are just displaying the image (with meta data), allowing user to capture a new image, has user selected an image from phone or not, etc.
- * 4) On View Controler, we add a + button on top right nav by using navigationController?.navigationBar.topItem?.rightBarButtonItem. This when clicked, we define a function (addButtonClicked) to execute where do perform segue to DetailedVC (take user to another view for inputs)
- * 5) On DetailedVC, we allow imageView to be user action enabled by using isUserInteractionEnabled function and add a gesture recognizer to imageView so a function imageViewTapped is called when user taps on imageView. In this function we add code for user to see images in phone, select or edit+select an image. Please see that function for more details.
- * 6) In DetailedVC, saveBtn (it should've been saveBtnClicked ideally) is the function we defined when user clicks on save button. In this function we save an image and related meta data to CoreData. Make sure to use do-try-catch block when it comes to saving the context. This function is well documented, please see this for coding steps for saving a new record to CoreData. We use this to take the user to first view when all done on save button action: self.navigationController?.popViewController(animated: true). Also note that when a new record is saved, we need to send a message from saveBtn using NotificationCenter.default.post and also add an observer for that named message to be observed in first view (ViewController) to reload TableView and display this new record. We add observer inside viewWillAppear method (since viewDidLoad is called only once) where we also define a #selector method (getData) to be called. CoreData must be imported to use its functions.
- * 7) Inside getData on first view, we retrieve all the records from CoreData and display as rows in TableView (just the names of images). Like how we used TableView before, arrays help, we define two arrays, one to store names and one for ids. CoreData must be imported to use its functions. ViewControled must implement UIViewController, UITableViewDelegate, UITableViewDataSource and same way, DetailedVC must implement / extend from UIImagePickerControllerDelegate, UINavigationControllerDelegate.
+ * 1) Create storyboard layout with 2 views, connecting segue between them and getting Navigation Controller by
+      using menu: Editor -> Embed in -> Navigation Controller. On First view (ViewController), we get TableView
+      and second one (DetailedVC) an ImageView, TextFields for name, artist and year.
+ * 2) We go to .xcdatamodeld file and create a new Entity in CoreData: "Paintings" and define its attributes as
+      name (String), artist (String), year (Integer 32), image (BinaryData) and id (UUID).
+ * 3) We link all the controls to respective view controller. Save Button on DetailedVC needs to be connected
+      twice, once as Action, next time as Outlet. Action one is a function where we code on what happens when
+      user saves an image, Outlet one is used to show / hide / make button clickable, etc., based on whether we
+      are just displaying the image (with meta data), allowing user to capture a new image, has user selected an
+      image from phone or not, etc.
+ * 4) On View Controler, we add a + button on top right nav by using
+      navigationController?.navigationBar.topItem?.rightBarButtonItem. This when clicked, we define a function
+      (addButtonClicked) to execute where do perform segue to DetailedVC (take user to another view for inputs)
+ * 5) On DetailedVC, we allow imageView to be user action enabled by using isUserInteractionEnabled function and
+      add a gesture recognizer to imageView so a function imageViewTapped is called when user taps on imageView.
+      In this function we add code for user to see images in phone, select or edit+select an image. Please see
+      that function for more details.
+ * 6) In DetailedVC, saveBtn (it should've been saveBtnClicked ideally) is the function we defined when user
+      clicks on save button. In this function we save an image and related meta data to CoreData. Make sure to
+      use do-try-catch block when it comes to saving the context. This function is well documented, please see
+      this for coding steps for saving a new record to CoreData. We use this to take the user to first view when
+      all done on save button action: self.navigationController?.popViewController(animated: true). Also note
+      that when a new record is saved, we need to send a message from saveBtn using
+      NotificationCenter.default.post and also add an observer for that named message to be observed in first
+      view (ViewController) to reload TableView and display this new record. We add observer inside
+      viewWillAppear method (since viewDidLoad is called only once) where we also define a #selector method
+      (getData) to be called. CoreData must be imported to use its functions.
+ * 7) Inside getData on first view, we retrieve all the records from CoreData and display as rows in TableView
+      (just the names of images). Like how we used TableView before, arrays help, we define two arrays, one to
+      store names and one for ids. CoreData must be imported to use its functions. ViewControled must implement
+      UIViewController, UITableViewDelegate, UITableViewDataSource and same way, DetailedVC must implement /
+      extend from UIImagePickerControllerDelegate, UINavigationControllerDelegate.
  * 8) Use overloaded tableView to display rows (records), right content by retrieving from nameArray
- * 9) Allow user to click on a row get to another view (DetailedVC) where we hide save button and display that image and meta data. We use tableView method with "didSelectRowAt" argument where we performSegue to DetailedVC and in prepare method, make arrangement to pass id and name of the row clicked (similar to previous projects).
- * 10) In DetailedVC, viewDidLoad, check if id and name are populated, if so, retrieve that record from CoreData and display that. If not, display nothing. If record is available, hide save button and makde text fields not editable. Steps to retrieve from CoreData here will be slightly different since we need to also pass predicate with NSFetchRequest instance using NSPredicate to say we need record where id is <our id>. We can use other fields too but using id is best way.
- * 11) Allow user to swap a row in TableView from right and delete that entry in TableView and CoreData. Like before we user tableView method with "editingStyle" argument where we can grab the id for the row swaped and delete that from CoreData. Here also we have to use predicate with NSFetchRequest to retrieve the right record. Remember, while you can remove the record using context.delete(result) but it won't be committed to CoreData until you do context.save()
- * 12) Finally, you can add more images to your phone simulator but using it like actual phone, getting to safari browser in it, google for an image, tap on that image and select option "Add to Photos" to save the image to your simulator.
+ * 9) Allow user to click on a row get to another view (DetailedVC) where we hide save button and display that
+      image and meta data. We use tableView method with "didSelectRowAt" argument where we performSegue to
+      DetailedVC and in prepare method, make arrangement to pass id and name of the row clicked (similar to
+      previous projects).
+ * 10) In DetailedVC, viewDidLoad, check if id and name are populated, if so, retrieve that record from CoreData
+       and display that. If not, display nothing. If record is available, hide save button and makde text fields
+       not editable. Steps to retrieve from CoreData here will be slightly different since we need to also pass
+       predicate with NSFetchRequest instance using NSPredicate to say we need record where id is <our id>. We
+       can use other fields too but using id is best way.
+ * 11) Allow user to swap a row in TableView from right and delete that entry in TableView and CoreData. Like
+       before we user tableView method with "editingStyle" argument where we can grab the id for the row swaped
+       and delete that from CoreData. Here also we have to use predicate with NSFetchRequest to retrieve the
+       right record. Remember, while you can remove the record using context.delete(result) but it won't be
+       committed to CoreData until you do context.save()
+ * 12) Finally, you can add more images to your phone simulator but using it like actual phone, getting to
+       safari browser in it, google for an image, tap on that image and select option "Add to Photos" to save
+       the image to your simulator.
  */
 
 import UIKit
