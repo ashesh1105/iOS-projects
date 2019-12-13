@@ -17,7 +17,7 @@
       image from phone or not, etc.
  * 4) On View Controler, we add a + button on top right nav by using
       navigationController?.navigationBar.topItem?.rightBarButtonItem. This when clicked, we define a function
-      (addButtonClicked) to execute where do perform segue to DetailedVC (take user to another view for inputs)
+      (addButtonClicked) to execute where to perform segue to DetailedVC (take user to another view for inputs)
  * 5) On DetailedVC, we allow imageView to be user action enabled by using isUserInteractionEnabled function and
       add a gesture recognizer to imageView so a function imageViewTapped is called when user taps on imageView.
       In this function we add code for user to see images in phone, select or edit+select an image. Please see
@@ -115,7 +115,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             let results = try context.fetch(fetchRequest)
             
             if results.count > 0 {
-                // You must cast an row as NSManagedObject to use it
+                // You must cast a row(record) as NSManagedObject to use it
                 for result in results as! [NSManagedObject] {   // need to cast results from Any to NSManagedObject
 
                     // Retrieve an attribute from the row (result) and populate nameArray and idArray
