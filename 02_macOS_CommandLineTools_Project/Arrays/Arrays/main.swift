@@ -6,9 +6,8 @@ import Foundation
 var myStrArr = ["str1", "str2", "str3", "str4"]
 print(myStrArr[1])  // prints str2
 
-// Arrays can store elements of spefic type, you are not allowed to mix them unless using Any type
+// Arrays can store elements of specific type, you are not allowed to mix them unless using Any type
 // var myArr = ["abc", "xyz", 2]    => Error: "Heterogeneous collection literal could only be inferred to '[Any]'; add explicit type annotation if this is intentional"
-
 // Types can be mixed if we use Any type:
 var myArrAnyType = ["abc", "xyz", 2, true] as [Any]
 print(myArrAnyType[2])  // prints 2
@@ -61,7 +60,7 @@ var myFavouriteDirectors = [
 ]
 print(myFavouriteDirectors["Lock Stock"])   // Prints Optional("Guy Ritchie"). Add ! to get rid of Optional (TODO: Explore more on Optional results)
 myFavouriteDirectors["The Dark Knight"] = "Ashesh Singh"
-print(myFavouriteDirectors["The Dark Knight"])  // Prints the new value with this key
+print(myFavouriteDirectors["The Dark Knight"]!)  // Prints the new value with this key
 // Another example of dictionary
 var myCaloriesBurnt = [
     "Run": 100,

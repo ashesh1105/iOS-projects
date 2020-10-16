@@ -32,7 +32,8 @@ print(myNumber + userAge)   // will print 45
 // Operations can't involve variables of different types
 let pi = 3.14
 // print(userAge * pi)  => will be an error: "Binary operator '*' cannot be applied to operands of type 'Int' and 'Double'"
-// How do you get around this?
+// You can get around it by type casting
+print("Multiplying with type casting (Double(userAge) * pi): \(Double(userAge) * pi)")
 
 // intger, double and float
 let numConst = 4

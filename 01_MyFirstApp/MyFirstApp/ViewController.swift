@@ -13,7 +13,11 @@ class ViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     
     @IBAction func btnClicked(_ sender: Any) {
-        imageView.image = UIImage(named: "metallica-hero")
+        if (imageView.image == UIImage(named: "metallica-hero")) {
+            imageView.image = UIImage(named: "metallica1")
+        } else {
+            imageView.image = UIImage(named: "metallica-hero")
+        }
     }
     
     override func viewDidLoad() {
